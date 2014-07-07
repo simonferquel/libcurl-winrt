@@ -259,7 +259,7 @@
 #    define WIN32_LEAN_AND_MEAN
 #  endif
 #  include <windows.h>
-#if  WINAPI_FAMILY == WINAPI_FAMILY_APP
+#if  WINAPI_FAMILY == WINAPI_FAMILY_APP || WINAPI_FAMILY == WINAPI_FAMILY_PHONE_APP
 #      include <winrtsock.h>
 #      include <winrtsockEx.h>
 #    else

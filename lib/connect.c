@@ -22,6 +22,7 @@
 
 #include "curl_setup.h"
 
+#include <Windows.h>
 #ifdef HAVE_NETINET_IN_H
 #include <netinet/in.h> /* <netinet/tcp.h> may need it */
 #endif

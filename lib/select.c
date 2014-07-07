@@ -45,6 +45,7 @@
 #include "connect.h"
 #include "select.h"
 #include "warnless.h"
+#include <Windows.h>
 
 /* Convenience local macros */
 

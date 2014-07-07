@@ -22,13 +22,15 @@
 
 #include "timeval.h"
 
+#include <Windows.h>
+
 typedef ULONGLONG(WINAPI *PtrGetTickCount64)(void);
 static PtrGetTickCount64 ptrGetTickCount64 = 0;
 
 #if defined(WIN32) && !defined(MSDOS)
 
 
-#if  WINAPI_FAMILY == WINAPI_FAMILY_APP
+#if  WINAPI_FAMILY == WINAPI_FAMILY_APP || WINAPI_FAMILY == WINAPI_FAMILY_PHONE_APP
 static void resolvetc64()
 {
 	static bool done = false;
@@ -54,7 +56,7 @@ struct timeval curlx_tvnow(void)
   */
   struct timeval now;
 
-  #if  WINAPI_FAMILY == WINAPI_FAMILY_APP
+#if  WINAPI_FAMILY == WINAPI_FAMILY_APP || WINAPI_FAMILY == WINAPI_FAMILY_PHONE_APP
   resolvetc64();
   DWORD milliseconds = ptrGetTickCount64();
   #else

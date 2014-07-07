@@ -57,6 +57,13 @@ struct pollfd
 	short   events;
 	short   revents;
 };
+//#else
+//struct pollfd
+//{
+//	curl_socket_t fd;
+//	short   events;
+//	short   revents;
+//};
 #endif
 
 
