@@ -96,13 +96,13 @@ static bool verifyconnect(curl_socket_t sockfd, int *error);
 #endif
 
 #if defined(HAVE_WINSOCK_H) && !defined(SIO_KEEPALIVE_VALS)
-#define SIO_KEEPALIVE_VALS    _WSAIOW(IOC_VENDOR,4)
-
-struct tcp_keepalive {
-  u_long onoff;
-  u_long keepalivetime;
-  u_long keepaliveinterval;
-};
+//#define SIO_KEEPALIVE_VALS    _WSAIOW(IOC_VENDOR,4)
+//
+//struct tcp_keepalive {
+//  u_long onoff;
+//  u_long keepalivetime;
+//  u_long keepaliveinterval;
+//};
 #endif
 
 static void

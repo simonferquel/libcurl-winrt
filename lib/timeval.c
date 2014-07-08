@@ -31,16 +31,15 @@ static PtrGetTickCount64 ptrGetTickCount64 = 0;
 
 
 #if  WINAPI_FAMILY == WINAPI_FAMILY_APP || WINAPI_FAMILY == WINAPI_FAMILY_PHONE_APP
+ULONGLONG WINAPI curlGetTickCount64(){
+	return GetTickCount64();
+}
 static void resolvetc64()
 {
 	static bool done = false;
 	if (done)
 		return;
-
-	int kernel32 = GetModuleHandleW(L"kernel32");
-
-
-	ptrGetTickCount64 = (PtrGetTickCount64)GetProcAddress(kernel32, "GetTickCount64");
+	ptrGetTickCount64 = &curlGetTickCount64;
 
 	done = true;
 }

@@ -491,30 +491,30 @@
    a valid build target for VS2008. Popular belief is that binaries built
    with VS2008 using Windows SDK versions 6.X and Windows 2000 as a build
    target are functional. */
-#if defined(_MSC_VER) && (_MSC_VER >= 1500)
-#  define VS2008_MIN_TARGET 0x0500
-#endif
-
-/* When no build target is specified VS2008 default build target is Windows
-   Vista, which leaves out even Winsows XP. If no build target has been given
-   for VS2008 we will target the minimum Officially supported build target,
-   which happens to be Windows XP. */
-#if defined(_MSC_VER) && (_MSC_VER >= 1500)
-#  define VS2008_DEF_TARGET  0x0501
-#endif
-
-/* VS2008 default target settings and minimum build target check. */
-#if defined(_MSC_VER) && (_MSC_VER >= 1500)
-#  ifndef _WIN32_WINNT
-#    define _WIN32_WINNT VS2008_DEF_TARGET
-#  endif
-#  ifndef WINVER
-#    define WINVER VS2008_DEF_TARGET
-#  endif
+//#if defined(_MSC_VER) && (_MSC_VER >= 1500)
+//#  define VS2008_MIN_TARGET 0x0500
+//#endif
+//
+///* When no build target is specified VS2008 default build target is Windows
+//   Vista, which leaves out even Winsows XP. If no build target has been given
+//   for VS2008 we will target the minimum Officially supported build target,
+//   which happens to be Windows XP. */
+//#if defined(_MSC_VER) && (_MSC_VER >= 1500)
+//#  define VS2008_DEF_TARGET  0x0501
+//#endif
+//
+///* VS2008 default target settings and minimum build target check. */
+//#if defined(_MSC_VER) && (_MSC_VER >= 1500)
+//#  ifndef _WIN32_WINNT
+//#    define _WIN32_WINNT VS2008_DEF_TARGET
+//#  endif
+//#  ifndef WINVER
+//#    define WINVER VS2008_DEF_TARGET
+//#  endif
 //#  if (_WIN32_WINNT < VS2008_MIN_TARGET) || (WINVER < VS2008_MIN_TARGET)
 //#    error VS2008 does not support Windows build targets prior to Windows 2000
 //#  endif
-#endif
+//#endif
 
 /* When no build target is specified Pelles C 5.00 and later default build
    target is Windows Vista. We override default target to be Windows 2000. */
